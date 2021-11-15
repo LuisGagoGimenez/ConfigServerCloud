@@ -10,9 +10,19 @@ public class TestController {
 	@Value("${some.value}")
 	private String myValue;
 
-	@GetMapping("/myValue")
-	public String myValue() {
-		return this.myValue;
-	}
+	@Value("${spring.profiles.dev}")
+	private String profileDev;
 
+	@GetMapping("/myValueDev")
+	public String myValueDev() {
+		return this.myValue + " " + profileDev;
+	}
+	
+	@Value("${spring.profiles.test}")
+	private String profileTest;
+
+	@GetMapping("/myValueTest")
+	public String myValusTest() {
+		return this.myValue + " " + profileTest;
+	}
 }
