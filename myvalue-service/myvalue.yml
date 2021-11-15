@@ -1,4 +1,12 @@
 server:
   port: 8888
-some:
-  value: valor del servidor
+ 
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/rafardmor71/BootCamp-ConfigServer
+          default-label: main
+          search-paths: 
+            - '*propiedades'
